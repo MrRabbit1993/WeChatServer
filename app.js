@@ -1,13 +1,10 @@
 const Koa = require('koa');
-
+const classic = require("./router/v1/classic");
+const book = require("./router/v1/book");
 const app = new Koa();
 
-app.use(async (ctx, next) => {//注册中间件
-    console.log(1);
-    await next()
-});
-app.use(async (ctx, next) => {
-    console.log(2);
-    await next();
-});
+app.use(classic.routes());
+app.use(book.routes());
+
+
 app.listen(3000);
