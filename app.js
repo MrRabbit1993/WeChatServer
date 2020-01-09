@@ -1,10 +1,9 @@
 const Koa = require('koa');
-const classic = require("./router/v1/classic");
-const book = require("./router/v1/book");
+
+const InitManager = require("./core/init");
+
 const app = new Koa();
 
-app.use(classic.routes());
-app.use(book.routes());
-
+InitManager.initCore(app);
 
 app.listen(3000);
