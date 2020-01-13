@@ -5,6 +5,8 @@ router.post("/v1/:id/classic/latest", (ctx, next) => {
     const query = ctx.request.query;//获取地址栏参数？param=1
     const headers = ctx.request.header;//获取header
     const body = ctx.request.body;//获取body
-    ctx.body = { key: "hello koa1" }
+    ctx.body = { key: "hello latest" }
+    throw new Error("API ERRPR")
+
 })
 module.exports = router;
