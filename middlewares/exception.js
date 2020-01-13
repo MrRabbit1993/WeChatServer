@@ -1,8 +1,16 @@
- const catError = async (ctx, next) => {
+const HttpException = require("./../core/http-exception");
+const catError = async (ctx, next) => {
     try {
         await next();
     } catch (error) {
-        ctx.body = "服务器挂了"
+        if (error instanceof HttpException) {//已知异常
+            ctx.body = {
+                msg: error.msg,
+                errorCode: error.errorCode,
+                request: `${ctx.method} ${ctx.path}`
+            }
+            ctx.status = error.status
+        }
     }
 }
 module.exports = catError;
