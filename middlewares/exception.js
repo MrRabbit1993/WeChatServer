@@ -1,4 +1,4 @@
-const HttpException = require("./../core/http-exception");
+const { HttpException } = require("./../core/http-exception");
 const catError = async (ctx, next) => {
     try {
         await next();

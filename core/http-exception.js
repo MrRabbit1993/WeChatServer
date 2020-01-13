@@ -1,3 +1,4 @@
+//异常基类
 class HttpException extends Error {
     constructor(msg = "服务器异常", errorCode = 10000, status = 400) {
         super();
@@ -6,4 +7,18 @@ class HttpException extends Error {
         this.msg = msg;
     }
 }
-module.exports = HttpException;
+
+//参数错误
+class ParamsException extends HttpException {
+    constructor(msg = "参数错误", errorCode = 10000) {
+        super();
+        this.status = 400;
+        this.msg = msg;
+        this.errorCode = errorCode;
+    }
+}
+
+module.exports = {
+    HttpException,
+    ParamsException
+};
