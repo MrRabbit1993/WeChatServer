@@ -1,6 +1,6 @@
 const Router = require("koa-router");
 
-const HttpException = require("../../../core/http-exception");
+const { HttpException, ParamsException } = require("../../../core/http-exception");
 
 const router = new Router();
 router.post("/v1/:id/classic/latest", (ctx, next) => {
@@ -9,7 +9,8 @@ router.post("/v1/:id/classic/latest", (ctx, next) => {
     const headers = ctx.request.header;//获取header
     const body = ctx.request.body;//获取body
     if (true) {
-        const error = new HttpException("错误啦11", 10001, 400);
+        const error = new ParamsException(); 
+        // const error = new global.errs.ParamsException(); 
         throw error;
     }
     ctx.body = { key: "hello latest" }
