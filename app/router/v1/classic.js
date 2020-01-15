@@ -13,6 +13,7 @@ router.post("/v1/:id/classic/latest", (ctx, next) => {
     const body = ctx.request.body;//获取body
 
     const v = new PositiveIntegerValidator().validate(ctx);//校验正整数
+    const id = v.get('path.id')
 
     // if (true) {
     //     const error = new ParameterException();
