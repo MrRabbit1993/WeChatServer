@@ -9,7 +9,7 @@ class HttpException extends Error {
 }
 
 //参数错误
-class ParamsException extends HttpException {
+class ParameterException extends HttpException {
     constructor(msg = "参数错误", errorCode = 10000) {
         super();
         this.status = 400;
@@ -20,5 +20,5 @@ class ParamsException extends HttpException {
 
 module.exports = {
     HttpException,
-    ParamsException
+    ParameterException
 };

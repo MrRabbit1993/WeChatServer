@@ -10,6 +10,13 @@ const catError = async (ctx, next) => {
                 request: `${ctx.method} ${ctx.path}`
             }
             ctx.status = error.status
+        }else{//未知异常
+            ctx.body = {
+                msg: "发生未知错误",
+                errorCode: 999,
+                request: `${ctx.method} ${ctx.path}`
+            }
+            ctx.status = 500
         }
     }
 }
