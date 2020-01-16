@@ -14,8 +14,8 @@ class InitManager {//初始化管理器
         InitManager.loadConfig();//调取静态方法(引入配置文件)
     }
 
-    static loadConfig(path=""){
-        const configPath = path||`${process.cwd()}/config/config.js`;
+    static loadConfig(path = "") {
+        const configPath = path || `${process.cwd()}/config/config.js`;
         const config = require(configPath);
         global.config = config;
     }
